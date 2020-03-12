@@ -1,0 +1,110 @@
+#include<stdio.h>
+ int main()
+ {   int run(int x,int y);
+     int day(int x,int y,int z);
+	 void qinkuang(int m,int n,int k);
+	 int m,n,k,f;
+	 int x,y,z;
+	 printf("请输入出生年月日： （格式如 2000年1月3日)\n");
+	 scanf("%d,%d,%d",&x,&y,&z);
+	 int a,b,c;
+	 printf("请输入要查询的日期： （格式如 2020年3月9日)\n");
+	 scanf("%d,%d,%d",&a,&b,&c);
+	 f=(a-x)*365+run(x,y)-day(x,y,z)+day(x,y,z);
+	 m=f%23;
+	 n=f%28;
+	 k=f%33;
+	 qinkuang(m,n,k);
+	 return 0;
+ }
+int day(int x,int y,int z){
+		if(x%100!=0&&x/4==0||x/400==0)	{
+			switch(y){
+				case 1:return z;
+			break;
+				case 2:return (31+z);
+			break;
+				case 3:return (31+29+z);
+			break;
+				case 4:return (31+29+31+z);
+			break;
+				case 5:return (31+29+31+30+z);
+			break;
+				case 6:return (31+29+31+30+31+z);
+			break;
+				case 7:return (31+29+31+30+31+30+z);
+			break;
+				case 8:return (31+29+31+30+31+30+31+z);
+			break;
+				case 9:return (31+29+31+30+31+30+31+31+z);
+			break;
+				case 10:return (31+29+31+30+31+30+31+31+30+z);
+			break;
+				case 11:return (31+29+31+30+31+30+31+31+30+31+z);
+			break;
+				case 12:return (31+29+31+30+31+30+31+31+30+31+30+z);
+			break;
+			}
+		}
+	else{
+			switch(y){
+				case 1:return z;
+			break;
+				case 2:return (31+z);
+			break;
+				case 3:return (31+28+z);
+			break;
+				case 4:return (31+28+31+z);
+			break;
+				case 5:return (31+28+31+30+z);
+			break;
+				case 6:return (31+28+31+30+31+z);
+			break;
+				case 7:return (31+28+31+30+31+30+z);
+			break;
+				case 8:return (31+28+31+30+31+30+31+z);
+			break;
+				case 9:return (31+28+31+30+31+30+31+31+z);
+			break;
+				case 10:return (31+28+31+30+31+30+31+31+30+z);
+			break;
+				case 11:return (31+28+31+30+31+30+31+31+30+31+z);
+			break;
+				case 12:return (31+28+31+30+31+30+31+31+30+31+30+z);
+			break;
+			}
+	}
+	
+	}
+	
+void qinkuang(int m,int n,int k){
+	if(m<12&&m!=0)
+	printf("体力处于高潮期\n");
+	if(m==12)
+	printf("体力处于临界日\n");
+	if(m>12)
+	printf("体力处于低潮期\n");
+	if(m==0)
+	printf("体力处于周期天\n");
+	
+	if(n<14&&n!=0)
+	printf("情绪处于高潮期\n");
+	if(n==14)
+	printf("情绪处于临界日\n");
+	if(n>14) 
+	printf("情绪处于低潮期\n");
+	if(n=0)	
+	printf("体力处于周期天\n");
+	
+	if(k<17&&k!=0)
+	printf("智力处于高潮期\n");
+	if(k==17)
+	printf("智力处于临界日\n");
+	if(k>17)
+	printf("智力处于低潮期\n");
+	if(k==0) 
+	printf("智力处于周期天\n");
+
+	if((m==12&&n==14&&k==17)||(m==12&&n==14&&k==17)||(m==12&&k==17&&n==14)||(m==12&&n==14&&k==17))
+	printf("您的情况处于危险期，请注意安全。");
+}
